@@ -34,7 +34,8 @@ const Modal = ({ handleClose, text }) => {
           onClick={handleCloseClick}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}>
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          style={{ color: "white" }}>
           Close❌
         </motion.button>
       </motion.div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Modal from "./Modal";
+import Square from "../square/Square";
 
 const Tictactoe = () => {
   const intialBoard = Array(9).fill(null);
@@ -120,12 +121,24 @@ const Tictactoe = () => {
             winner === "T"
               ? "😒👀it's a Tie"
               : winner === "X"
-              ? "✨player One wins✨"
-              : "🎉player Two wins🎉"
+              ? "✨player X wins✨"
+              : "🎉player O wins🎉"
           }></Modal>
       )}
-      <div style={{ marginBottom: "2rem", display: "flex", flexDirection: "column", gap: "2rem" }}>
-        <div>Player One Wins: {player1Wins}</div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Square text={"X"} val={player}></Square>
+        <Square text={"O"} val={player}></Square>
+      </div>
+      <div
+        style={{
+          marginTop: "2rem",
+          marginBottom: "2rem",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "2rem",
+        }}>
+        <div>Player One Wins : {player1Wins}</div>
         <div>Player Two Wins : {player2Wins}</div>
       </div>
       <div
@@ -140,14 +153,16 @@ const Tictactoe = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.5 }}
-          onClick={handleResetGame}>
+          onClick={handleResetGame}
+          style={{ color: "white" }}>
           New Game 🎮
         </motion.button>
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.5 }}
-          onClick={handleClearStats}>
+          onClick={handleClearStats}
+          style={{ color: "white" }}>
           Clear Stats 🧹
         </motion.button>
       </div>
